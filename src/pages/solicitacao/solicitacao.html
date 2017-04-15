@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Minhas Solicitações</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Categoria</ion-label>
+      <ion-select (ionChange)="alterarCategoria()" [(ngModel)]="categoria" name="categoria">
+        <ion-option value="Transporte">Transporte</ion-option>
+        <ion-option value="Tecnologia">Tecnologia</ion-option>
+        <ion-option value="Faturamento">Faturamento</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
+    <ion-card-content>  
+      <h1>{{item.nmUsuario}}</h1>
+      <h2>{{item.dsEmpresa}}</h2>
+      <h3>{{item.dsCidade}} {{item.dsEstado}}</h3>
+      <h4><b>{{item.dsServico}}</b></h4>
+      <h5>{{item.dhServico}}</h5>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

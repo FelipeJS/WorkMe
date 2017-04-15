@@ -5,6 +5,7 @@ import { Configuracao } from './../pages/configuracao/configuracao';
 import { Perfil } from './../pages/perfil/perfil';
 import { Empresa } from './../pages/empresa/empresa';
 import { Home } from './../pages/home/home';
+import { Solicitacao } from './../pages/solicitacao/solicitacao';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -30,11 +31,11 @@ export class MyApp {
       { title: 'Empresas', component: Empresa },
       { title: 'Clientes', component: Cliente },
       { title: 'Funcionarios', component: Funcionario },
+      { title: 'Minhas Solicitações', component: Solicitacao },
       { title: 'Serviços/Produtos', component: Servico },
       { title: 'Perfil', component: Perfil },
       { title: 'Configurações', component: Configuracao }
     ];
-
 
     this.activePage = this.pages[0];
   }

@@ -9,31 +9,50 @@
 </ion-header>
 
 <ion-content padding>
+    
     <ion-list>
-        <ion-item color="light" padding>
-            <ion-select [(ngModel)]="tipo" name="tipo" cancelText="Cancelar" okText="Escolher" item-left>
-                <ion-option value="servico">Serviço</ion-option>
-                <ion-option value="produto">Produto</ion-option>
-                <ion-option value="outro">Outro</ion-option>
-            </ion-select>
-            <ion-input type="text" item-right></ion-input>
-        </ion-item>
+        <form>
+            <ion-item color="light" padding>
+                <ion-label floating color="darker">Nome</ion-label>
+                <ion-input type="text" [(ngModel)]="servico.nome" name="servico.nome"></ion-input>
+            </ion-item>
 
-        <ion-item color="light" padding>
-            <ion-label floating color="darker">Categoria</ion-label>
-            <ion-input type="text"></ion-input>
-        </ion-item>
+            <ion-item color="light" padding>
+                <ion-label floating color="darker">Categoria</ion-label>
+                <ion-input type="text" [(ngModel)]="servico.categoria" name="servico.categoria"></ion-input>
+            </ion-item>
 
-        <ion-item color="light" padding>
-            <ion-label floating color="darker">Detalhes</ion-label>
-            <ion-input type="text"></ion-input>
-        </ion-item>
+            <ion-item color="light" padding>
+                <ion-label floating color="darker">Detalhes</ion-label>
+                <ion-input type="text" [(ngModel)]="servico.detalhe" name="servico.detalhe"></ion-input>
+            </ion-item>
 
-        <ion-item color="light">
-            <button ion-button icon-right default color="primary" block>
-            Salvar
-            <ion-icon name="add-circle"></ion-icon>
-            </button>
-        </ion-item>
+            <ion-item color="light">
+                <button ion-button icon-right default color="primary" block (click)="salvarServico(servico)">
+                Salvar
+                <ion-icon name="add-circle"></ion-icon>
+                </button>
+            </ion-item>
+        </form>
     </ion-list>
+    
+    <ion-list>
+        <ion-item-sliding *ngFor="let item of itens">
+            <ion-item color="primary">
+                <h2>{{item.nome}}</h2>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="accent">
+                    <ion-icon name="information-circle"></ion-icon>
+                    Detalhes
+                </button>
+                <button ion-button color="danger">
+                    <ion-icon name="close-circle"></ion-icon>
+                    Apagar
+                </button>
+            </ion-item-options>
+            <ion-item-divider ></ion-item-divider>
+        </ion-item-sliding>
+    </ion-list>
+    
 </ion-content>

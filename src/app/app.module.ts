@@ -13,6 +13,8 @@ import { TrabalhoAnalise } from './../pages/trabalho-analise/trabalho-analise';
 import { Home } from './../pages/home/home';
 import { TrabalhoDetalhe } from './../pages/trabalho-detalhe/trabalho-detalhe';
 import { Trabalho } from './../pages/trabalho/trabalho';
+import { Solicitacao } from './../pages/solicitacao/solicitacao';
+import { SolicitacaoDetalhe } from './../pages/solicitacao-detalhe/solicitacao-detalhe';
 import { TrabalhoFechado } from './../pages/trabalho-fechado/trabalho-fechado';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -43,7 +45,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ClienteDetalhe,
     Funcionario,
     FuncionarioDetalhe,
-    Servico
+    Servico,
+    Solicitacao,
+    SolicitacaoDetalhe
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ClienteDetalhe,
     Funcionario,
     FuncionarioDetalhe,
-    Servico
+    Servico,
+    Solicitacao,
+    SolicitacaoDetalhe
   ],
   providers: [
     StatusBar,
