@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{item.nmPessoa}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card color="light" >
+    
+    <ion-item color="light">
+      <ion-icon name="person" item-left></ion-icon>
+      <ion-note item-right>
+        <h3>{{item.nrDocumento}}</h3>
+      </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-icon name="cube" item-left></ion-icon>
+      <ion-note item-right>
+        <h3>{{item.dsCategoria}}</h3>
+      </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-icon name="mail" item-left></ion-icon>
+      <ion-note item-right>
+        <h3>{{item.dsEmail}}</h3>
+      </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-icon name="locate" item-left></ion-icon>
+      <ion-note item-right>
+        <h3>{{item.dsBairro}} - {{item.dsCidade}} {{item.dsEstado}}</h3>
+      </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-icon name="call" item-left></ion-icon>
+      <ion-note item-right>
+        <h3><a>{{item.nrTelefone}}</a></h3>
+      </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <button ion-button icon-left clear small item-left>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      <button ion-button icon-left clear small item-right>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-item>
+    
+    <ion-item color="light">
+      <ion-select [(ngModel)]="servico" cancelText="Cancelar" okText="Confirmar" block>
+        <ion-option *ngFor="let item of servicos" value="{{item.nmSevico}}">{{item.nmSevico}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item color="light">
+      <button ion-button icon-right default color="primary" block>
+        Solicitar
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-card>
+</ion-content>
