@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Solicitação
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span>Cancelar</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background-color: #e9ebee;">
+  <ion-list>
+      <ion-item>
+        <h2>{{character.name}}</h2>
+        <p>{{character.quote}}</p>
+      </ion-item>
+
+      <ion-item *ngFor="let item of character['items']">
+        {{item.title}}
+        <ion-note item-right>
+          {{item.note}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item color="light">
+        <button ion-button icon-right default color="primary" block>
+          Solicitar
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+      </ion-item>
+  </ion-list>
+</ion-content>

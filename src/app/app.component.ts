@@ -30,7 +30,7 @@ export class MyApp {
       { title: 'Trabalho', component: Home },
       { title: 'Empresas', component: Empresa },
       { title: 'Clientes', component: Cliente },
-      { title: 'Funcionarios', component: Funcionario },
+      { title: 'Funcionários', component: Funcionario },
       { title: 'Minhas Solicitações', component: Solicitacao },
       { title: 'Serviços/Produtos', component: Servico },
       { title: 'Perfil', component: Perfil },

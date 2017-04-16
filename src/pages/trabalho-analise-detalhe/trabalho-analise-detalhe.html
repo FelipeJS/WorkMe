@@ -72,10 +72,8 @@
       </ion-note>
     </ion-item>
 
-    
-
     <ion-list>
-      <ion-item color="primary" *ngFor="let comentario of comentarios">
+      <ion-item color="darker" *ngFor="let comentario of comentarios" style="border-bottom: 1px solid #e9ebee;">
         <ion-note item-left>
           <p>{{comentario.nmPessoa}}</p>
         </ion-note>
@@ -94,7 +92,7 @@
       </ion-item>
     </form>
 
-    <ion-item color="light">
+    <ion-item color="backgroud">
       <button ion-button icon-right block default color="danger">
         Finalizar
         <ion-icon name="done-all"></ion-icon>

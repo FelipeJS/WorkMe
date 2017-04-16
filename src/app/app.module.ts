@@ -5,8 +5,9 @@ import { ClienteDetalhe } from './../pages/cliente-detalhe/cliente-detalhe';
 import { Cliente } from './../pages/cliente/cliente';
 import { Configuracao } from './../pages/configuracao/configuracao';
 import { Perfil } from './../pages/perfil/perfil';
-import { EmpresaDetalhe } from './../pages/empresa-detalhe/empresa-detalhe';
 import { Empresa } from './../pages/empresa/empresa';
+import { EmpresaDetalhe } from './../pages/empresa-detalhe/empresa-detalhe';
+import { ModalContentPage } from './../pages/empresa-detalhe/empresa-detalhe';
 import { TrabalhoAnaliseDetalhe } from './../pages/trabalho-analise-detalhe/trabalho-analise-detalhe';
 import { TrabalhoFechadoDetalhe } from './../pages/trabalho-fechado-detalhe/trabalho-fechado-detalhe';
 import { TrabalhoAnalise } from './../pages/trabalho-analise/trabalho-analise';
@@ -16,6 +17,7 @@ import { Trabalho } from './../pages/trabalho/trabalho';
 import { Solicitacao } from './../pages/solicitacao/solicitacao';
 import { SolicitacaoDetalhe } from './../pages/solicitacao-detalhe/solicitacao-detalhe';
 import { TrabalhoFechado } from './../pages/trabalho-fechado/trabalho-fechado';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -39,6 +41,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TrabalhoAnaliseDetalhe,
     Empresa,
     EmpresaDetalhe,
+    ModalContentPage,
     Perfil,
     Configuracao,
     Cliente,
@@ -66,6 +69,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TrabalhoAnaliseDetalhe,
     Empresa,
     EmpresaDetalhe,
+    ModalContentPage,
     Perfil,
     Configuracao,
     Cliente,

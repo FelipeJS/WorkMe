@@ -8,37 +8,25 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label fixed>Categoria</ion-label>
-      <ion-select (ionChange)="alterarCategoria()" [(ngModel)]="categoria" name="categoria" cancelText="Nah" okText="Okay!">
-        <ion-option value="Transporte">Transporte</ion-option>
-        <ion-option value="Tecnologia">Tecnologia</ion-option>
-        <ion-option value="Faturamento">Faturamento</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+<ion-content padding style="background-color: #e9ebee;">
+  <ion-searchbar (ionInput)="getItens($event)" placeholder="Pesquisar"></ion-searchbar>
 
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>  
       <h1>{{item.nmPessoa}}</h1>
       <h2>{{item.dsCategoria}}</h2>
       <h3>{{item.dsCidade}} {{item.dsEstado}}</h3>
-      <ion-row>
-        <ion-col color="light">
-          <button ion-button icon-left clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
-          </button>
-        </ion-col>
-        <ion-col item-left>
-          <button ion-button icon-left clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
-          </button>
-        </ion-col>
-      </ion-row>
+
+      <ion-item color="light">
+        <button ion-button icon-left clear small item-left>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+        <button ion-button icon-left clear small item-right>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 

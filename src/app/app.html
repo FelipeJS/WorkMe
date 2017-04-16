@@ -6,8 +6,8 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
-      <ion-list>
+    <ion-content style="background-color: #e9ebee;">
+      <ion-list style="background-color: #e9ebee;">
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [class.activeHighlight]="checkActive(p)">
           {{p.title}}
         </button>

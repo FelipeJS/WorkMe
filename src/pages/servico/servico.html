@@ -8,7 +8,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="background-color: #e9ebee;">
     
     <ion-list>
         <form>
@@ -29,7 +29,7 @@
 
             <ion-item color="light">
                 <button ion-button icon-right default color="primary" block (click)="salvarServico(servico)">
-                Salvar
+                Adicionar
                 <ion-icon name="add-circle"></ion-icon>
                 </button>
             </ion-item>
@@ -38,7 +38,7 @@
     
     <ion-list>
         <ion-item-sliding *ngFor="let item of itens">
-            <ion-item color="primary">
+            <ion-item color="darker">
                 <h2>{{item.nome}}</h2>
             </ion-item>
             <ion-item-options side="right">

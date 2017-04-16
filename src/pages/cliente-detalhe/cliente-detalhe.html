@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="background-color: #e9ebee;">
   <ion-card color="light" >
     
     <ion-item color="light">
@@ -54,12 +54,6 @@
         <ion-icon name="text"></ion-icon>
         <div>4 Comments</div>
       </button>
-    </ion-item>
-    
-    <ion-item color="light">
-      <ion-select [(ngModel)]="servico" cancelText="Cancelar" okText="Confirmar" block>
-        <ion-option *ngFor="let item of servicos" value="{{item.nmSevico}}">{{item.nmSevico}}</ion-option>
-      </ion-select>
     </ion-item>
 
     <ion-item color="light">

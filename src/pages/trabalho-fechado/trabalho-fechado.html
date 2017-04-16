@@ -7,21 +7,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label fixed>Categoria</ion-label>
-      <ion-select (ionChange)="alterarCategoria()" [(ngModel)]="categoria" name="categoria">
-        <ion-option value="Transporte">Transporte</ion-option>
-        <ion-option value="Tecnologia">Tecnologia</ion-option>
-        <ion-option value="Faturamento">Faturamento</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+<ion-content padding style="background-color: #e9ebee;">
+  <ion-searchbar (ionInput)="getItens($event)" placeholder="Pesquisar"></ion-searchbar>
 
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>  
-      <h1>{{item.nmUsuario}}</h1>
+      <h1>{{item.nmPessoa}}</h1>
       <h2>{{item.dsEmpresa}}</h2>
       <h3>{{item.dsCidade}} {{item.dsEstado}}</h3>
       <h4><b>{{item.dsServico}}</b></h4>
