@@ -13,14 +13,14 @@
 
 <ion-content padding style="background-color: #e9ebee;">
   <ion-list>
-      <ion-item>
+      <ion-item color="light">
         <h2>{{character.name}}</h2>
         <p>{{character.quote}}</p>
       </ion-item>
 
-      <ion-item *ngFor="let item of character['items']">
+      <ion-item *ngFor="let item of character['items']" color="light">
         {{item.title}}
-        <ion-note item-right>
+        <ion-note item-right color="darker">
           {{item.note}}
         </ion-note>
       </ion-item>

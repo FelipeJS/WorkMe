@@ -1,3 +1,4 @@
+import { ModalContentPage } from './../pages/empresa-detalhe-modal/empresa-detalhe-modal';
 import { Servico } from './../pages/servico/servico';
 import { FuncionarioDetalhe } from './../pages/funcionario-detalhe/funcionario-detalhe';
 import { Funcionario } from './../pages/funcionario/funcionario';
@@ -7,7 +8,6 @@ import { Configuracao } from './../pages/configuracao/configuracao';
 import { Perfil } from './../pages/perfil/perfil';
 import { Empresa } from './../pages/empresa/empresa';
 import { EmpresaDetalhe } from './../pages/empresa-detalhe/empresa-detalhe';
-import { ModalContentPage } from './../pages/empresa-detalhe/empresa-detalhe';
 import { TrabalhoAnaliseDetalhe } from './../pages/trabalho-analise-detalhe/trabalho-analise-detalhe';
 import { TrabalhoFechadoDetalhe } from './../pages/trabalho-fechado-detalhe/trabalho-fechado-detalhe';
 import { TrabalhoAnalise } from './../pages/trabalho-analise/trabalho-analise';
