@@ -4,18 +4,15 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Empresas</ion-title>
-
   </ion-navbar>
 </ion-header>
 
 <ion-content padding style="background-color: #e9ebee;">
-  <ion-searchbar (ionInput)="getItens($event)" placeholder="Pesquisar"></ion-searchbar>
-
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
-    <ion-card-content>  
-      <h1>{{item.nmPessoa}}</h1>
-      <h2>{{item.dsCategoria}}</h2>
-      <h3>{{item.dsCidade}} {{item.dsEstado}}</h3>
+    <ion-card-content *ngIf="item.tipo == 'empresa'">  
+      <h1>{{item.nome}}</h1>
+      <h2>{{item.categoria}}</h2>
+      <h3>{{item.cidade}} {{item.estado}}</h3>
 
       <ion-item color="light">
         <button ion-button icon-left clear small item-left>
@@ -29,5 +26,4 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-
 </ion-content>
