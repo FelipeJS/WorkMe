@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{item.nome}}</ion-title>
+    <ion-title>{{item.name}} {{item.lastName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +12,13 @@
     
     <ion-item color="light" [hidden]="true">
       <ion-note item-right>
-        <h3>{{item.cdPessoa}}</h3>
+        <h3>{{item.id}}</h3>
+      </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-note item-right>
+        <h3>{{item.id}}</h3>
       </ion-note>
     </ion-item>
 

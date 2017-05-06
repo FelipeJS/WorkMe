@@ -1,8 +1,7 @@
 import { PessoaProvider } from './../../providers/pessoa-provider';
 import { EmpresaDetalhe } from './../empresa-detalhe/empresa-detalhe';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'empresa',
@@ -11,29 +10,42 @@ import { LoadingController } from 'ionic-angular';
 export class Empresa {
   itens : any[];
 
-  constructor(public navCtrl: NavController, public pessoaProvider: PessoaProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public pessoaProvider: PessoaProvider, 
+              public loadingCtrl: LoadingController, private alertCtrl: AlertController) {
     this.getPessoas();
   }
 
   getPessoas(){
     let load = this.presentLoading();
-    this.pessoaProvider.getPessoas().subscribe(
-      data => this.itens = data, 
-      err => console.log(err)
+    this.pessoaProvider.getEmpresas().subscribe(
+      data => this.buildItens(data, load), 
+      err => this.errorAlert(err, load)
     );
-    
-    //load.dismiss().then(() => {
-      
-    //});
+  }
+
+  buildItens(data, load){
+    this.itens = data;
+    this.itens = this.itens.filter(item => item.active === 1);
+    load.dismiss();
   }
 
   presentLoading() {
     let load = this.loadingCtrl.create({
-      content: 'Buscando...',
-      duration: 800
+      content: 'Buscando...'
     });
     load.present();
     return load;
+  }
+
+  errorAlert(err, load) {
+    load.dismiss();
+    let alert = this.alertCtrl.create({
+      title: 'Falhou!',
+      subTitle: 'Verifique sua conexão',
+      buttons: ['Ok']
+    });
+    alert.present();
+    console.log(err);
   }
 
   viewItem(item){

@@ -1,3 +1,5 @@
+import { ServicoProvider } from './../providers/servico-provider';
+import { ConfiguracaoProvider } from './../providers/configuracao-provider';
 import { PessoaProvider } from './../providers/pessoa-provider';
 import { ModalContentPage } from './../pages/empresa-detalhe-modal/empresa-detalhe-modal';
 import { Servico } from './../pages/servico/servico';
@@ -29,7 +31,6 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 
 @NgModule({
   declarations: [
@@ -88,6 +89,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     PessoaProvider,
+    ServicoProvider,
+    ConfiguracaoProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

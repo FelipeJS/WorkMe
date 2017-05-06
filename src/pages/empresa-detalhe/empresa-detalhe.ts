@@ -1,6 +1,7 @@
+import { ServicoProvider } from './../../providers/servico-provider';
 import { ModalContentPage } from '../empresa-detalhe-modal/empresa-detalhe-modal';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, LoadingController, AlertController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'empresa-detalhe.html'
@@ -8,29 +9,48 @@ import { NavController, NavParams, ModalController } from 'ionic-angular';
 export class EmpresaDetalhe {
 
   item: any;
+  servicos = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
+        public modalCtrl: ModalController, public servicoProvider: ServicoProvider, private alertCtrl: AlertController) {
     this.item = navParams.get('item');
+    this.getServicos(this.item);
   }
 
-  servicos = [{
-    'cdSevico': 1,
-    'nmSevico': 'Venda de Computador',
-    'dsServico': 'Computador i3 3.7Gz RAN 4GB HD 1TB',
-    'dsCategoria':'Vendas'
-  },{
-    'cdSevico': 2,
-    'nmSevico': 'Venda de Celular',
-    'dsServico': 'Sansung J5 R$ 500,00',
-    'dsCategoria':'Vendas' 
-  }]
+  getServicos(item){
+    let load = this.presentLoading();
+    this.servicoProvider.getServicos(item.id).subscribe(
+      data => this.buildItens(data, load), 
+      err => this.errorAlert(err, load)
+    );
+  }
+
+  buildItens(data, load){
+    this.servicos = data;
+    load.dismiss();
+  }
+
+  presentLoading() {
+    let load = this.loadingCtrl.create({
+      content: 'Buscando...'
+    });
+    load.present();
+    return load;
+  }
+
+  errorAlert(err, load) {
+    load.dismiss();
+    let alert = this.alertCtrl.create({
+      title: 'Falhou!',
+      subTitle: 'Verifique sua conexão',
+      buttons: ['Ok']
+    });
+    alert.present();
+    console.log(err);
+  }
 
   openModal(characterNum) {
     let modal = this.modalCtrl.create(ModalContentPage, characterNum);
     modal.present();
   }
 }
-
-
-
-

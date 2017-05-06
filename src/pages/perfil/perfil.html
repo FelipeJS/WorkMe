@@ -61,6 +61,11 @@
             </ion-item>
 
             <ion-item color="light" padding>
+                <ion-label floating color="darker">Senha</ion-label>
+                <ion-input type="password" name="senha" formControlName="senha" [(ngModel)]="item.senha"></ion-input>
+            </ion-item>
+
+            <ion-item color="light" padding>
                 <ion-label floating color="darker">Categoria</ion-label>
                 <ion-input type="text" name="categoria" formControlName="categoria" [(ngModel)]="item.categoria"></ion-input>
             </ion-item>

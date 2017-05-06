@@ -3,13 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{item.nome}}</ion-title>
+    <ion-title>{{item.name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding style="background-color: #e9ebee;">
-  <ion-card color="light" >
+  <ion-card>
     
+    <ion-item color="light">
+      <ion-note item-right>
+        <h3>{{item.id}}</h3>
+      </ion-note>
+    </ion-item>
+
     <ion-item color="light">
       <ion-icon name="person" item-left></ion-icon>
       <ion-note item-right>
@@ -56,17 +62,11 @@
       </button>
     </ion-item>
     
-    <ion-list>
-      <a ion-item (click)="openModal({charNum: 0})" color="darker" style="text-align:center; border-bottom: 1px solid #e9ebee;">
-        Manutenção de Computador
-      </a>
-      <a ion-item (click)="openModal({charNum: 1})" color="darker" style="text-align:center; border-bottom: 1px solid #e9ebee;">
-        Suporte de Infra-Estrutura
-      </a>
-      <a ion-item (click)="openModal({charNum: 2})" color="darker" style="text-align:center; border-bottom: 1px solid #e9ebee;">
-        Reparo de computador
+    <ion-list *ngFor="let servico of servicos">
+      <a ion-item (click)="openModal({charNum: servico.cdServico})" color="darker" style="text-align:center; border-bottom: 1px solid #e9ebee;">
+        {{servico.nome}}
       </a>
     </ion-list>
-    
+
   </ion-card>
 </ion-content>

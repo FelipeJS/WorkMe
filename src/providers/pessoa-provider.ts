@@ -11,20 +11,24 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PessoaProvider {
 
-  api:string = 'http://192.168.25.7:9090/pessoa/';
+  api:string = 'http://localhost:9090/';
 
   constructor(public http: Http) {}
 
-  getPessoas(){
-    return this.http.get(this.api + 'listar').map(res => res.json())
+  getClientes(){
+    return this.http.get(this.api + 'listarClientes').map(res => res.json())
   }
 
-  getPessoa(cdPessoa){
-    return this.http.get(this.api + 'consultar?cdPessoa=' + cdPessoa).map(res => res.json())
+  getEmpresas(){
+    return this.http.get(this.api + 'listarEmpresas').map(res => res.json())
   }
 
-  postPessoa(params){
-    return this.http.post(this.api + "salvar", params, {
+  getPessoa(userId){
+    return this.http.get(this.api + 'consultar?userId=' + userId).map(res => res.json())
+  }
+
+  postPessoa(user){
+    return this.http.post(this.api + "salvar", user, {
       method: "POST"
     }).map(
           (res: Response) => {return res.json();}

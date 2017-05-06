@@ -8,7 +8,6 @@ import { Validators, FormBuilder } from '@angular/forms'
   templateUrl: 'perfil.html'
 })
 export class Perfil {
-
   item: any = {}; 
   pessoa: any = {};
   usuarioLogado;
@@ -26,37 +25,40 @@ export class Perfil {
       cidade:['', Validators.required],
       estado:['', Validators.required],
       email:['', Validators.required],
+      senha:['', Validators.required],
       categoria:['', Validators.required],
       tipo:['', Validators.required]
     });
 
-    this.usuarioLogado = this.getUsuarioLogado();
-    this.getPessoa(this.usuarioLogado);
-  }
-
-  getPessoa(usuarioLogado){
-    this.pessoaProvider.getPessoa(usuarioLogado).subscribe(
-      data => this.item = data, 
-      err => console.log(err)
-    );
-    this.presentLoading();
+    this.getPessoa(this.getUsuarioLogado());
   }
 
   postPessoa(){
+    let load = this.presentLoading();
     this.pessoaProvider.postPessoa(this.pessoa.value).subscribe(
-      data=>this.presentAlert(),
-      err=>this.errorAlert()
+      data=>this.presentAlert(load),
+      err=>this.errorAlert(err, load)
+    );
+  }
+
+  getPessoa(usuarioLogado){
+    let load = this.presentLoading();
+    this.pessoaProvider.getPessoa(usuarioLogado).subscribe(
+      data => this.buildItens(data, load), 
+      err => this.errorAlert(err, load)
     );
   }
 
   presentLoading() {
-    this.loadingCtrl.create({
-      content: 'Buscando...',
-      duration: 800
-    }).present();
+    let load = this.loadingCtrl.create({
+      content: 'Aguarde...'
+    });
+    load.present();
+    return load;
   }
 
-  presentAlert() {
+  presentAlert(load) {
+    load.dismiss();
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Seus dados foram atualizados',
@@ -65,16 +67,23 @@ export class Perfil {
     alert.present();
   }
 
-  errorAlert() {
+  buildItens(data, load){
+    this.item = data;
+    load.dismiss();
+  }
+
+  errorAlert(err, load) {
+    load.dismiss();
     let alert = this.alertCtrl.create({
       title: 'Falhou!',
-      subTitle: 'Algo deu errado',
+      subTitle: 'Verifique sua conexão',
       buttons: ['Ok']
     });
     alert.present();
+    console.log(err);
   }
 
   getUsuarioLogado(){
-    return 2;
+    return 1;
   }
 }
