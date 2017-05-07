@@ -8,15 +8,12 @@
 </ion-header>
 
 <ion-content padding style="background-color: #e9ebee;">
-  <ion-searchbar (ionInput)="getItens($event)" placeholder="Pesquisar"></ion-searchbar>
-
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>  
-      <h1>{{item.nmPessoa}}</h1>
-      <h2>{{item.dsEmpresa}}</h2>
-      <h3>{{item.dsCidade}} {{item.dsEstado}}</h3>
-      <h4><b>{{item.dsServico}}</b></h4>
-      <h5>{{item.dhServico}}</h5>
+      <h1>{{item.user.name}} {{item.user.lastName}} </h1>
+      <h3>{{item.user.cidade}} {{item.user.estado}}</h3>
+      <h4><b>{{item.descricao}}</b></h4>
+      <h5>{{item.dhSolicitacao}}</h5>
     </ion-card-content>
   </ion-card>
 </ion-content>

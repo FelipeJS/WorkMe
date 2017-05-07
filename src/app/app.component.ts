@@ -1,5 +1,4 @@
 import { Servico } from './../pages/servico/servico';
-import { Funcionario } from './../pages/funcionario/funcionario';
 import { Cliente } from './../pages/cliente/cliente';
 import { Perfil } from './../pages/perfil/perfil';
 import { Empresa } from './../pages/empresa/empresa';
@@ -29,7 +28,6 @@ export class MyApp {
       { title: 'Trabalho', component: Home },
       { title: 'Empresas', component: Empresa },
       { title: 'Clientes', component: Cliente },
-      { title: 'Funcionários', component: Funcionario },
       { title: 'Minhas Solicitações', component: Solicitacao },
       { title: 'Serviços/Produtos', component: Servico },
       { title: 'Perfil', component: Perfil }

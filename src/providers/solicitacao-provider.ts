@@ -17,16 +17,40 @@ export class SolicitacaoProvider {
     return this.http.get(this.api + 'consultar?cdServico=' + cdServico).map(res => res.json())
   }
 
-  getMyServicos(){
-    return this.http.get(this.api + 'listar').map(res => res.json())
+  getSolicitacoesAbertas(){
+    return this.http.get(this.api + 'listarAbertos').map(res => res.json())
+  }
+
+  getSolicitacoesAnalisadas(){
+    return this.http.get(this.api + 'listarAnalisados').map(res => res.json())
+  }
+
+  getSolicitacoesFechadas(){
+    return this.http.get(this.api + 'listarFechados').map(res => res.json())
+  }
+
+  getMySolicitacoes(){
+    return this.http.get(this.api + 'listarMinhasSolicitacoes').map(res => res.json())
   }
 
   deleteServico(cdServico){
     return this.http.get(this.api + 'excluir?cdServico=' + cdServico).map(res => res.json())
   }
 
-  postSolicitacao(solicitacao){
-    return this.http.post(this.api + "salvar", solicitacao, {
+  postSolicitacao(descricao, cdServico){
+    return this.http.get(this.api + 'salvar?descricao=' + descricao + '&cdServico=' + cdServico).map(res => res.json())
+  }
+
+  aceitarSolicitacao(solicitacao){
+    return this.http.post(this.api + "aceitar", solicitacao, {
+      method: "POST"
+    }).map(
+          (res: Response) => {return res.json();}
+    );
+  }
+
+  recusarSolicitacao(solicitacao){
+    return this.http.post(this.api + "recusar", solicitacao, {
       method: "POST"
     }).map(
           (res: Response) => {return res.json();}

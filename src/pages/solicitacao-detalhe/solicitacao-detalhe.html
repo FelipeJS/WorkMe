@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{item.nmUsuario}}</ion-title>
+    <ion-title>{{item.servico.nome}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,63 +12,49 @@
     <ion-item color="light">
       <ion-icon name="person" item-left></ion-icon>
       <ion-note item-right>
-        <h3>{{item.nrCpf}}</h3>
+        <h3>{{item.servico.categoria}}</h3>
       </ion-note>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="home" item-left></ion-icon>
       <ion-note item-right>
-        <h3>{{item.dsEmpresa}}</h3>
+        <h3>{{item.user.name}}</h3>
       </ion-note>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="mail" item-left></ion-icon>
       <ion-note item-right>
-        <h3>{{item.dsEmail}}</h3>
+        <h3>{{item.user.email}}</h3>
       </ion-note>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="locate" item-left></ion-icon>
       <ion-note item-right>
-        <h3>{{item.dsBairro}} - {{item.dsCidade}} {{item.dsEstado}}</h3>
+        <h3>{{item.user.dsBairro}} - {{item.user.dsCidade}} {{item.user.dsEstado}}</h3>
       </ion-note>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="call" item-left></ion-icon>
       <ion-note item-right>
-        <h3><a>{{item.nrTelefone}}</a></h3>
+        <h3><a>{{item.user.telefone}}</a></h3>
       </ion-note>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="list" item-left></ion-icon>
       <ion-note item-right>
-        <h3><b>{{item.dsServico}}</b></h3>
+        <h3><b>{{item.descricao}}</b></h3>
       </ion-note>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="calendar" item-left></ion-icon>
       <ion-note item-right>
-        <h3>{{item.dhServico}}</h3>
-      </ion-note>
-    </ion-item>
-
-    <ion-item color="light">
-      <ion-icon name="list-box" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.dsDetalhe}}</h3>
-      </ion-note>
-    </ion-item>
-
-    <ion-item color="light">
-      <ion-icon name="man" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.dsFuncionario}}</h3>
+        <h3>{{item.dhSolicitacao}}</h3>
       </ion-note>
     </ion-item>
 
@@ -91,8 +77,5 @@
         </button>
       </ion-item>
     </form>
-
   </ion-card>
-  
-  
 </ion-content>
