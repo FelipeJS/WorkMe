@@ -9,14 +9,6 @@ export class ConfiguracaoProvider {
 
   constructor(public http: Http) {}
 
-  /*getConfiguracao(params){
-    return this.http.post(this.api + "consultar", params, {
-      method: "POST"
-    }).map(
-          (res: Response) => {return res.json();}
-    );
-  }*/
-
   getConfiguracao(){
     return this.http.get(this.api + 'consultar').map(res => res.json())
   }
@@ -28,5 +20,4 @@ export class ConfiguracaoProvider {
           (res: Response) => {return res.json();}
     );
   }
-
 }

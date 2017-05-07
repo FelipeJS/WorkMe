@@ -2,7 +2,6 @@ import { PessoaProvider } from './../../providers/pessoa-provider';
 import { ConfiguracaoProvider } from './../../providers/configuracao-provider';
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'configuracao',
@@ -28,10 +27,13 @@ export class Configuracao {
     );
   }
 
+  buildItens(data, load){
+    this.item = data;
+    load.dismiss();
+  }
+
   postConfiguracao(configuracaoForm){
     let load = this.presentLoading();
-
-    configuracaoForm.value.pessoa = this.getUsuarioLogado(load);
 
     this.configuracaoProvider.postConfiguracao(configuracaoForm.value).subscribe(
       data=>this.presentAlert(data,load),
@@ -39,21 +41,12 @@ export class Configuracao {
     );
   }
 
-  getUsuarioLogado(load){
-    this.pessoaProvider.getPessoa(1).subscribe(
-      data => {return data}, 
-      err => this.errorAlert(err, load)
-    );
-  }
-
-  buildUsuarioLogado(data, load){
-    this.usuarioLogado = data;
-    load.dismiss();
-  }
-
-  buildItens(data, load){
-    this.item = data;
-    load.dismiss();
+  presentLoading() {
+    let load = this.loadingCtrl.create({
+      content: 'Aguarde...'
+    });
+    load.present();
+    return load;
   }
 
   presentAlert(data,load) {
@@ -75,14 +68,5 @@ export class Configuracao {
     });
     alert.present();
     console.log(err);
-  }
-
-  presentLoading() {
-    let load = this.loadingCtrl.create({
-      content: 'Aguarde...'
-    });
-    load.present();
-    return load;
-  }
- 
+  } 
 }

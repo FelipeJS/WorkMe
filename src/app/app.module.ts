@@ -1,7 +1,8 @@
+import { SolicitacaoProvider } from './../providers/solicitacao-provider';
 import { ServicoProvider } from './../providers/servico-provider';
 import { ConfiguracaoProvider } from './../providers/configuracao-provider';
 import { PessoaProvider } from './../providers/pessoa-provider';
-import { ModalContentPage } from './../pages/empresa-detalhe-modal/empresa-detalhe-modal';
+import { EmpresaDetalheModal } from './../pages/empresa-detalhe-modal/empresa-detalhe-modal';
 import { Servico } from './../pages/servico/servico';
 import { FuncionarioDetalhe } from './../pages/funcionario-detalhe/funcionario-detalhe';
 import { Funcionario } from './../pages/funcionario/funcionario';
@@ -45,7 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TrabalhoAnaliseDetalhe,
     Empresa,
     EmpresaDetalhe,
-    ModalContentPage,
+    EmpresaDetalheModal,
     Perfil,
     Configuracao,
     Cliente,
@@ -74,7 +75,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TrabalhoAnaliseDetalhe,
     Empresa,
     EmpresaDetalhe,
-    ModalContentPage,
+    EmpresaDetalheModal,
     Perfil,
     Configuracao,
     Cliente,
@@ -91,6 +92,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PessoaProvider,
     ServicoProvider,
     ConfiguracaoProvider,
+    SolicitacaoProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

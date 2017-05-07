@@ -1,7 +1,7 @@
 import { PessoaProvider } from './../../providers/pessoa-provider';
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { Validators, FormBuilder } from '@angular/forms'
+import { Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'perfil',
@@ -9,15 +9,16 @@ import { Validators, FormBuilder } from '@angular/forms'
 })
 export class Perfil {
   item: any = {}; 
-  pessoa: any = {};
+  user: any = {};
   usuarioLogado;
 
   constructor(public navCtrl: NavController, public pessoaProvider: PessoaProvider, public loadingCtrl: LoadingController, 
               public formBuilder: FormBuilder, private alertCtrl: AlertController) {
-    this.pessoa = this.formBuilder.group({
-      cdPessoa:['', Validators.required],
+    this.user = this.formBuilder.group({
+      id:['', Validators.required],
       documento:['', Validators.required],
-      nome:['', Validators.required],
+      name:['', Validators.required],
+      lastName:['', Validators.required],
       fantasia:['', Validators.required],
       telefone:['', Validators.required],
       endereco:['', Validators.required],
@@ -25,28 +26,34 @@ export class Perfil {
       cidade:['', Validators.required],
       estado:['', Validators.required],
       email:['', Validators.required],
-      senha:['', Validators.required],
+      password:['', Validators.required],
       categoria:['', Validators.required],
       tipo:['', Validators.required]
     });
 
-    this.getPessoa(this.getUsuarioLogado());
+    this.getPessoa();
   }
 
   postPessoa(){
     let load = this.presentLoading();
-    this.pessoaProvider.postPessoa(this.pessoa.value).subscribe(
+    this.pessoaProvider.postPessoa(this.user.value).subscribe(
       data=>this.presentAlert(load),
       err=>this.errorAlert(err, load)
     );
   }
 
-  getPessoa(usuarioLogado){
+  getPessoa(){
     let load = this.presentLoading();
-    this.pessoaProvider.getPessoa(usuarioLogado).subscribe(
+    this.pessoaProvider.getUsuarioLogado().subscribe(
       data => this.buildItens(data, load), 
       err => this.errorAlert(err, load)
     );
+  }
+
+  buildItens(data, load){
+    this.item = data;
+    this.item.password = '';
+    load.dismiss();
   }
 
   presentLoading() {
@@ -67,11 +74,6 @@ export class Perfil {
     alert.present();
   }
 
-  buildItens(data, load){
-    this.item = data;
-    load.dismiss();
-  }
-
   errorAlert(err, load) {
     load.dismiss();
     let alert = this.alertCtrl.create({
@@ -81,9 +83,5 @@ export class Perfil {
     });
     alert.present();
     console.log(err);
-  }
-
-  getUsuarioLogado(){
-    return 1;
   }
 }

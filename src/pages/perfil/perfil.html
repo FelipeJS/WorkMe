@@ -8,11 +8,11 @@
 </ion-header>
 
 <ion-content padding style="background-color: #e9ebee;">
-    <form [formGroup]="pessoa" (ngSubmit)="postPessoa()">
+    <form [formGroup]="user" (ngSubmit)="postPessoa()">
         <ion-list>
-            <ion-item color="light" padding>
+            <ion-item color="light" padding [hidden]='true'>
                 <ion-label floating color="darker">ID</ion-label>
-                <ion-input type="text" name="cdPessoa" formControlName="cdPessoa" [(ngModel)]="item.cdPessoa"></ion-input>
+                <ion-input type="text" name="id" formControlName="id" [(ngModel)]="item.id"></ion-input>
             </ion-item>
 
             <ion-item color="light" padding>
@@ -22,7 +22,12 @@
 
             <ion-item color="light" padding>
                 <ion-label floating color="darker">Nome</ion-label>
-                <ion-input type="text" name="nome" formControlName="nome" [(ngModel)]="item.nome"></ion-input>
+                <ion-input type="text" name="name" formControlName="name" [(ngModel)]="item.name"></ion-input>
+            </ion-item>
+
+            <ion-item color="light" padding>
+                <ion-label floating color="darker">Sobrenome</ion-label>
+                <ion-input type="text" name="lastName" formControlName="lastName" [(ngModel)]="item.lastName"></ion-input>
             </ion-item>
 
             <ion-item color="light" padding>
@@ -62,7 +67,7 @@
 
             <ion-item color="light" padding>
                 <ion-label floating color="darker">Senha</ion-label>
-                <ion-input type="password" name="senha" formControlName="senha" [(ngModel)]="item.senha"></ion-input>
+                <ion-input type="password" name="password" formControlName="password" [(ngModel)]="item.password"></ion-input>
             </ion-item>
 
             <ion-item color="light" padding>
@@ -70,13 +75,13 @@
                 <ion-input type="text" name="categoria" formControlName="categoria" [(ngModel)]="item.categoria"></ion-input>
             </ion-item>
 
-            <ion-item color="light" padding>
+            <ion-item color="light" padding [hidden]='true'>
                 <ion-label floating color="darker">Tipo</ion-label>
                 <ion-input type="text" name="tipo" formControlName="tipo" [(ngModel)]="item.tipo"></ion-input>
             </ion-item>
 
             <ion-item color="light">
-                <button ion-button icon-right default color="primary" block [disabled]="pessoa.invalid">
+                <button ion-button icon-right default color="primary" block [disabled]="user.invalid">
                 Atualizar
                 <ion-icon name="refresh-circle"></ion-icon>
                 </button>

@@ -63,10 +63,9 @@
     </ion-item>
     
     <ion-list *ngFor="let servico of servicos">
-      <a ion-item (click)="openModal({charNum: servico.cdServico})" color="darker" style="text-align:center; border-bottom: 1px solid #e9ebee;">
+      <a ion-item (click)="openModal({cdServico: servico.cdServico})" color="darker" style="text-align:center; border-bottom: 1px solid #e9ebee;">
         {{servico.nome}}
       </a>
     </ion-list>
-
   </ion-card>
 </ion-content>

@@ -4,7 +4,6 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Serviços/Produtos</ion-title>
-
   </ion-navbar>
 </ion-header>
 
@@ -24,7 +23,7 @@
 
             <ion-item color="light" padding>
                 <ion-label floating color="darker">Detalhes</ion-label>
-                <ion-input type="text" [(ngModel)]="servico.detalhe" name="servico.detalhe"></ion-input>
+                <ion-input type="text" [(ngModel)]="servico.descricao" name="servico.descricao"></ion-input>
             </ion-item>
 
             <ion-item color="light">
@@ -43,9 +42,9 @@
                 <ion-icon name="rewind" item-right></ion-icon>
             </ion-item>
             <ion-item-options side="right">
-                <button ion-button color="accent">
+                <button ion-button color="accent" (click)="getServico(item.cdServico)">
                     <ion-icon name="information-circle"></ion-icon>
-                    Detalhes
+                    Alterar
                 </button>
                 <button ion-button color="danger" (click)="excluirServico(item.cdServico)">
                     <ion-icon name="close-circle"></ion-icon>
@@ -55,5 +54,4 @@
             <ion-item-divider ></ion-item-divider>
         </ion-item-sliding>
     </ion-list>
-    
 </ion-content>

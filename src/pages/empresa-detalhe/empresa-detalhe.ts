@@ -1,5 +1,5 @@
 import { ServicoProvider } from './../../providers/servico-provider';
-import { ModalContentPage } from '../empresa-detalhe-modal/empresa-detalhe-modal';
+import { EmpresaDetalheModal } from '../empresa-detalhe-modal/empresa-detalhe-modal';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, LoadingController, AlertController } from 'ionic-angular';
 
@@ -49,8 +49,8 @@ export class EmpresaDetalhe {
     console.log(err);
   }
 
-  openModal(characterNum) {
-    let modal = this.modalCtrl.create(ModalContentPage, characterNum);
+  openModal(cdServico) {
+    let modal = this.modalCtrl.create(EmpresaDetalheModal, cdServico);
     modal.present();
   }
 }

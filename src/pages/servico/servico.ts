@@ -29,6 +29,19 @@ export class Servico {
     load.dismiss();
   }
 
+  getServico(cdServico){
+    let load = this.presentLoading();
+    this.servicoProvider.getServico(cdServico).subscribe(
+      data => this.buildItem(data, load), 
+      err => this.errorAlert(err, load)
+    );
+  }
+
+  buildItem(data, load){
+    this.servico = data;
+    load.dismiss();
+  }
+  
   presentLoading() {
     let load = this.loadingCtrl.create({
       content: 'Buscando...'
@@ -50,10 +63,21 @@ export class Servico {
 
   salvarServico(servico){
     let load = this.presentLoading();
+
     this.servicoProvider.postServico(servico).subscribe(
-      data => this.adicionarItem(data, load), 
+      data => this.atualizarItens(load), 
       err => this.errorAlert(err, load)
     );
+  }
+
+  atualizarItens(load){
+    this.servicoProvider.getMyServicos().subscribe(
+      data => this.itens = data, 
+      err => console.log(err)
+    );
+
+    this.servico = {};
+    load.dismiss();
   }
 
   excluirServico(cdServico){
@@ -62,12 +86,6 @@ export class Servico {
       data => this.removerItem(data, load), 
       err => this.errorAlert(err, load)
     );
-  }
-
-  adicionarItem(data, load){
-    this.itens.push(data);
-    this.servico = {};
-    load.dismiss();
   }
 
   removerItem(data, load){ 

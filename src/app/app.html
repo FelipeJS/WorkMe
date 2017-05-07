@@ -9,8 +9,11 @@
     <ion-content style="background-color: #e9ebee;">
       <ion-list style="background-color: #e9ebee;">
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [class.activeHighlight]="checkActive(p)">
-          {{p.title}}
+          <div>{{p.title}}</div>
         </button>
+        <a menuClose ion-item href="http://localhost:9090/logout">
+          Sair
+        </a>
       </ion-list>
     </ion-content>
   </ion-menu>

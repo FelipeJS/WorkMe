@@ -1,7 +1,6 @@
 import { Servico } from './../pages/servico/servico';
 import { Funcionario } from './../pages/funcionario/funcionario';
 import { Cliente } from './../pages/cliente/cliente';
-import { Configuracao } from './../pages/configuracao/configuracao';
 import { Perfil } from './../pages/perfil/perfil';
 import { Empresa } from './../pages/empresa/empresa';
 import { Home } from './../pages/home/home';
@@ -33,8 +32,7 @@ export class MyApp {
       { title: 'Funcionários', component: Funcionario },
       { title: 'Minhas Solicitações', component: Solicitacao },
       { title: 'Serviços/Produtos', component: Servico },
-      { title: 'Perfil', component: Perfil },
-      { title: 'Configurações', component: Configuracao }
+      { title: 'Perfil', component: Perfil }
     ];
 
     this.activePage = this.pages[0];

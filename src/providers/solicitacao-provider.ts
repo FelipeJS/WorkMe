@@ -3,9 +3,9 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class ServicoProvider {
+export class SolicitacaoProvider {
 
-  api:string = 'http://localhost:9090/servico/';
+  api:string = 'http://localhost:9090/solicitacao/';
 
   constructor(public http: Http) {}
 
@@ -25,8 +25,8 @@ export class ServicoProvider {
     return this.http.get(this.api + 'excluir?cdServico=' + cdServico).map(res => res.json())
   }
 
-  postServico(servico){
-    return this.http.post(this.api + "salvar", servico, {
+  postSolicitacao(solicitacao){
+    return this.http.post(this.api + "salvar", solicitacao, {
       method: "POST"
     }).map(
           (res: Response) => {return res.json();}

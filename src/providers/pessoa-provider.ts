@@ -23,12 +23,16 @@ export class PessoaProvider {
     return this.http.get(this.api + 'listarEmpresas').map(res => res.json())
   }
 
+  getUsuarioLogado(){
+    return this.http.get(this.api + 'consultarUsuarioLogado').map(res => res.json())
+  }
+
   getPessoa(userId){
     return this.http.get(this.api + 'consultar?userId=' + userId).map(res => res.json())
   }
 
   postPessoa(user){
-    return this.http.post(this.api + "salvar", user, {
+    return this.http.post(this.api + "atualizar", user, {
       method: "POST"
     }).map(
           (res: Response) => {return res.json();}
