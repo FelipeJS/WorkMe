@@ -1,3 +1,4 @@
+import { Trabalho } from './../trabalho/trabalho';
 import { SolicitacaoProvider } from '../../providers/solicitacao-provider';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
@@ -30,6 +31,7 @@ export class TrabalhoDetalhe {
       buttons: ['Ok']
     });
     alert.present();
+    this.viewItem();
   }
 
   recusarSolicitacao(solicitacao){
@@ -68,5 +70,9 @@ export class TrabalhoDetalhe {
     });
     load.present();
     return load;
+  }
+
+  viewItem(){
+    this.navCtrl.push(Trabalho, {});
   }
 }
