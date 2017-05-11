@@ -11,5 +11,4 @@ export class ClienteDetalhe {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.item = navParams.get('item');
   }
-
 }

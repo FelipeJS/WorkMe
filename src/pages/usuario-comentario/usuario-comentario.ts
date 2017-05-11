@@ -1,29 +1,26 @@
-import { TrabalhoAnalise } from './../trabalho-analise/trabalho-analise';
-import { SolicitacaoProvider } from './../../providers/solicitacao-provider';
-import { ComentarioSolicitacaoProvider } from './../../providers/comentario-solicitacao-provider';
+import { ComentarioPessoaProvider } from './../../providers/comentario-pessoa-provider';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'trabalho-analise-detalhe.html'
+  templateUrl: 'usuario-comentario.html'
 })
-export class TrabalhoAnaliseDetalhe {
+export class UsuarioComentario {
 
   comentario : String;
-
   item: any;
   itens = [];
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, 
         public loadingCtrl: LoadingController, private alertCtrl: AlertController,
-        public comentarioSolicitacaoProvider : ComentarioSolicitacaoProvider, public solicitacaoProvider: SolicitacaoProvider) {
+        public comentarioPessoaProvider: ComentarioPessoaProvider) {
     this.item = navParams.get('item');
     this.getComentarios();
   }
 
   getComentarios(){
     let load = this.presentLoading();
-    this.comentarioSolicitacaoProvider.getComentarios(this.item.cdSolicitacao).subscribe(
+    this.comentarioPessoaProvider.getComentarios(this.item.id).subscribe(
       data => this.buildItens(data, load), 
       err => this.errorAlert(err, load)
     );
@@ -37,14 +34,14 @@ export class TrabalhoAnaliseDetalhe {
   salvarComentarioSolicitacao(){
     let load = this.presentLoading();
 
-    this.comentarioSolicitacaoProvider.postComentarioSolicitacao(this.item.cdSolicitacao, this.comentario).subscribe(
+    this.comentarioPessoaProvider.postComentarioPessoa(this.item.id, this.comentario).subscribe(
       data => this.atualizarItens(load), 
       err => this.errorAlert(err, load)
     );
   }
 
   atualizarItens(load){
-    this.comentarioSolicitacaoProvider.getComentarios(this.item.cdSolicitacao).subscribe(
+    this.comentarioPessoaProvider.getComentarios(this.item.id).subscribe(
       data => this.itens = data, 
       err => console.log(err)
     );
@@ -69,28 +66,5 @@ export class TrabalhoAnaliseDetalhe {
     });
     alert.present();
     console.log(err);
-  }
-
-  finalizarSolicitacao(solicitacao){
-    let load = this.presentLoading();
-    this.solicitacaoProvider.finalizarSolicitacao(solicitacao).subscribe(
-      data=>this.presentAlert(load),
-      err=>this.errorAlert(err, load)
-    );
-  }
-
-  presentAlert(load) {
-    load.dismiss();
-    let alert = this.alertCtrl.create({
-      title: 'Sucesso!',
-      subTitle: 'Solicitação finalizada',
-      buttons: ['Ok']
-    });
-    alert.present();
-    this.viewItem();
-  }
-
-  viewItem(){
-    this.navCtrl.push(TrabalhoAnalise, {});
   }
 }

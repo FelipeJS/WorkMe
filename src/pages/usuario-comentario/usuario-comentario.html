@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: #e9ebee;">
+  <form>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="comentario" name="comentario" placeholder="Digite aqui..."></ion-input>
+        <button ion-fab mini color="secondary" item-right (click)="salvarComentarioSolicitacao()">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-item>
+  </form>
+
+  <ion-list>
+        <ion-item-sliding *ngFor="let comentario of itens">
+            <ion-item color="darker">
+                <h2 item-left>{{comentario.descricao}}</h2>
+                <ion-icon name="rewind" item-right></ion-icon>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="accent" (click)="getComentarioPessoa(comentario.cdComentarioPessoa)">
+                    <ion-icon name="information-circle"></ion-icon>
+                    Alterar
+                </button>
+                <button ion-button color="danger" (click)="excluirComentarioPessoa(comentario.cdComentarioPessoa)">
+                    <ion-icon name="close-circle"></ion-icon>
+                    Apagar
+                </button>
+            </ion-item-options>
+            <ion-item-divider ></ion-item-divider>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

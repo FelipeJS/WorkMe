@@ -12,6 +12,13 @@
     <ion-item color="light">
       <ion-icon name="person" item-left></ion-icon>
       <ion-note item-right>
+        <h3>{{item.cdSolicitacao}}</h3>
+      </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-icon name="person" item-left></ion-icon>
+      <ion-note item-right>
         <h3>{{item.user.documento}}</h3>
       </ion-note>
     </ion-item>
@@ -73,12 +80,12 @@
     </ion-item>
 
     <ion-list>
-      <ion-item color="darker" *ngFor="let comentario of comentarios" style="border-bottom: 1px solid #e9ebee;">
+      <ion-item color="darker" *ngFor="let comentario of itens" style="border-bottom: 1px solid #e9ebee;">
         <ion-note item-left>
-          <p>{{comentario.nmPessoa}}</p>
+          <p>{{comentario.user.name}}</p>
         </ion-note>
         <ion-note item-right>
-          <p>{{comentario.dsComentario}}</p>          
+          <p>{{comentario.descricao}}</p>          
         </ion-note>
       </ion-item>
     </ion-list>
@@ -86,14 +93,14 @@
     <form>
       <ion-item>
         <ion-input type="text" [(ngModel)]="comentario" name="comentario" placeholder="Digite aqui..."></ion-input>
-        <button ion-fab mini color="secondary" item-right (click)="enviarMensagem()">
+        <button ion-fab mini color="secondary" item-right (click)="salvarComentarioSolicitacao()">
           <ion-icon name="send"></ion-icon>
         </button>
       </ion-item>
     </form>
 
     <ion-item color="backgroud">
-      <button ion-button icon-right block default color="danger">
+      <button ion-button icon-right block default color="danger" (click)="finalizarSolicitacao(item)">
         Finalizar
         <ion-icon name="done-all"></ion-icon>
       </button>

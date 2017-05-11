@@ -52,13 +52,9 @@
     </ion-item>
 
     <ion-item color="light">
-      <button ion-button icon-left clear small item-left>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
-      </button>
-      <button ion-button icon-left clear small item-right>
+      <button ion-button icon-left clear small item-right (click)="viewItem(item)">
         <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
+        <div>Comentários</div>
       </button>
     </ion-item>
     

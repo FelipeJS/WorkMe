@@ -1,3 +1,6 @@
+import { UsuarioComentario } from './../pages/usuario-comentario/usuario-comentario';
+import { ComentarioPessoaProvider } from './../providers/comentario-pessoa-provider';
+import { ComentarioSolicitacaoProvider } from './../providers/comentario-solicitacao-provider';
 import { SolicitacaoProvider } from './../providers/solicitacao-provider';
 import { ServicoProvider } from './../providers/servico-provider';
 import { ConfiguracaoProvider } from './../providers/configuracao-provider';
@@ -55,7 +58,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FuncionarioDetalhe,
     Servico,
     Solicitacao,
-    SolicitacaoDetalhe
+    SolicitacaoDetalhe,
+    UsuarioComentario
   ],
   imports: [
     BrowserModule,
@@ -84,7 +88,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FuncionarioDetalhe,
     Servico,
     Solicitacao,
-    SolicitacaoDetalhe
+    SolicitacaoDetalhe,
+    UsuarioComentario
   ],
   providers: [
     StatusBar,
@@ -93,6 +98,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ServicoProvider,
     ConfiguracaoProvider,
     SolicitacaoProvider,
+    ComentarioSolicitacaoProvider,
+    ComentarioPessoaProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

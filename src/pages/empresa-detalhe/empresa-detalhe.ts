@@ -1,3 +1,4 @@
+import { UsuarioComentario } from './../usuario-comentario/usuario-comentario';
 import { ServicoProvider } from './../../providers/servico-provider';
 import { EmpresaDetalheModal } from '../empresa-detalhe-modal/empresa-detalhe-modal';
 import { Component } from '@angular/core';
@@ -52,5 +53,11 @@ export class EmpresaDetalhe {
   openModal(cdServico) {
     let modal = this.modalCtrl.create(EmpresaDetalheModal, cdServico);
     modal.present();
+  }
+
+  viewItem(item){
+    this.navCtrl.push(UsuarioComentario, {
+      item:item
+    });
   }
 }

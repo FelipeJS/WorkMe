@@ -49,6 +49,14 @@ export class SolicitacaoProvider {
     );
   }
 
+  finalizarSolicitacao(solicitacao){
+    return this.http.post(this.api + "finalizar", solicitacao, {
+      method: "POST"
+    }).map(
+          (res: Response) => {return res.json();}
+    );
+  }
+
   recusarSolicitacao(solicitacao){
     return this.http.post(this.api + "recusar", solicitacao, {
       method: "POST"
