@@ -10,7 +10,8 @@
 <ion-content padding style="background-color: #e9ebee;">
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>  
-      <h1>{{item.user.name}} {{item.user.lastName}} </h1>
+      <h2><b>{{item.cdSolicitacao}}</b></h2>
+      <h2>{{item.user.name}} {{item.user.lastName}}</h2>
       <h3>{{item.user.cidade}} {{item.user.estado}}</h3>
       <h4><b>{{item.descricao}}</b></h4>
       <h5>{{item.dhSolicitacao}}</h5>

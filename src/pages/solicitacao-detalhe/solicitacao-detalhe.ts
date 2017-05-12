@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SolicitacaoProvider } from './../../providers/solicitacao-provider';
 import { ComentarioSolicitacaoProvider } from './../../providers/comentario-solicitacao-provider';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
@@ -13,8 +12,7 @@ export class SolicitacaoDetalhe {
   itens = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, 
-      private alertCtrl: AlertController, public comentarioSolicitacaoProvider : ComentarioSolicitacaoProvider, 
-      public solicitacaoProvider: SolicitacaoProvider) {
+      private alertCtrl: AlertController, public comentarioSolicitacaoProvider : ComentarioSolicitacaoProvider) {
     this.item = navParams.get('item');
     this.getComentarios();
   }

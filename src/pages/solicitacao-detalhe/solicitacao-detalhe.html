@@ -12,7 +12,7 @@
     <ion-item color="light">
       <ion-icon name="barcode" item-left></ion-icon>
       <ion-note item-right>
-        <h3>{{item.cdSolicitacao}}</h3>
+        <h3><b>{{item.cdSolicitacao}}</b></h3>
       </ion-note>
     </ion-item>
 
@@ -68,7 +68,7 @@
     <ion-item color="light">
       <ion-icon name="list-box" item-left></ion-icon>
       <ion-note item-right>
-        <h3>{{item.descricao}}</h3>
+        <h3><b>{{item.descricao}}</b></h3>
       </ion-note>
     </ion-item>
 
@@ -90,7 +90,7 @@
       </ion-item>
     </ion-list>
 
-    <form>
+    <form *ngIf="item.status === 2">
       <ion-item>
         <ion-input type="text" [(ngModel)]="comentario" name="comentario" placeholder="Digite aqui..."></ion-input>
         <button ion-fab mini color="secondary" item-right (click)="salvarComentarioSolicitacao()">
