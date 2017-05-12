@@ -9,10 +9,11 @@
 
 <ion-content padding style="background-color: #e9ebee;">
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
-    <ion-card-content>  
-      <h1>{{item.servico.nome}}</h1>
-      <h2>{{item.descricao}}</h2>
-      <h3>{{item.status}}</h3>
+    <ion-card-content> 
+      <h1>{{item.cdSolicitacao}}</h1> 
+      <h2>{{item.servico.nome}}</h2>
+      <h3>{{item.descricao}}</h3>
+      <h4><b>{{item.status === 1 ? 'Aberto' : item.status === 2 ? 'Em Análise' : item.status === 3 ? 'Finalizado' : 'Recusado'}}</b></h4>
       <h5>{{item.dhSolicitacao}}</h5>
     </ion-card-content>
   </ion-card>

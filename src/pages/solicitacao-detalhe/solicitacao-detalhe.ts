@@ -1,41 +1,71 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { SolicitacaoProvider } from './../../providers/solicitacao-provider';
+import { ComentarioSolicitacaoProvider } from './../../providers/comentario-solicitacao-provider';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'solicitacao-detalhe.html'
 })
 export class SolicitacaoDetalhe {
 
-  comentario;
-  
+  comentario : String;
   item: any;
+  itens = [];
 
-  comentarios = [{
-    'cdPessoa':1,
-    'nmPessoa':'Eliakin Delbo',
-    'cdServico':1,
-    'cdComentario':1,
-    'dsComentario':'Estamos efetuando o reparo'
-  },{
-    'cdPessoa':3,
-    'nmPessoa':'Roberto Arantes',
-    'cdServico':3,
-    'cdComentario':2,
-    'dsComentario':'Estou no aguardo da solução'
-  }];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, 
+      private alertCtrl: AlertController, public comentarioSolicitacaoProvider : ComentarioSolicitacaoProvider, 
+      public solicitacaoProvider: SolicitacaoProvider) {
     this.item = navParams.get('item');
+    this.getComentarios();
   }
 
-  enviarMensagem(){
-    this.comentarios.push({
-      'cdPessoa':3,
-      'nmPessoa':'Roberto Arantes',
-      'cdServico':3,
-      'cdComentario':2,
-      'dsComentario': this.comentario
-    });
+ getComentarios(){
+    let load = this.presentLoading();
+    this.comentarioSolicitacaoProvider.getComentarios(this.item.cdSolicitacao).subscribe(
+      data => this.buildItens(data, load), 
+      err => this.errorAlert(err, load)
+    );
+  }
+
+  buildItens(data, load){
+    this.itens = data;
+    load.dismiss();
+  }
+
+  salvarComentarioSolicitacao(){
+    let load = this.presentLoading();
+
+    this.comentarioSolicitacaoProvider.postComentarioSolicitacao(this.item.cdSolicitacao, this.comentario).subscribe(
+      data => this.atualizarItens(load), 
+      err => this.errorAlert(err, load)
+    );
+  }
+
+  atualizarItens(load){
+    this.comentarioSolicitacaoProvider.getComentarios(this.item.cdSolicitacao).subscribe(
+      data => this.itens = data, 
+      err => console.log(err)
+    );
     this.comentario = "";
+    load.dismiss();
+  }
+
+  presentLoading() {
+    let load = this.loadingCtrl.create({
+      content: 'Buscando...'
+    });
+    load.present();
+    return load;
+  }
+
+  errorAlert(err, load) {
+    load.dismiss();
+    let alert = this.alertCtrl.create({
+      title: 'Falhou!',
+      subTitle: 'Verifique sua conexão',
+      buttons: ['Ok']
+    });
+    alert.present();
+    console.log(err);
   }
 }

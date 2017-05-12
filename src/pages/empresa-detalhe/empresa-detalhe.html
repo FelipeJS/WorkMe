@@ -50,13 +50,6 @@
         <h3><a>{{item.telefone}}</a></h3>
       </ion-note>
     </ion-item>
-
-    <ion-item color="light">
-      <button ion-button icon-left clear small item-right (click)="viewItem(item)">
-        <ion-icon name="text"></ion-icon>
-        <div>Comentários</div>
-      </button>
-    </ion-item>
     
     <ion-list *ngFor="let servico of servicos">
       <a ion-item (click)="openModal({cdServico: servico.cdServico})" color="darker" style="text-align:center; border-bottom: 1px solid #e9ebee;">
