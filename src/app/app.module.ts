@@ -1,3 +1,4 @@
+import { TrabalhaParaProvider } from './../providers/trabalha-para-provider';
 import { UsuarioComentario } from './../pages/usuario-comentario/usuario-comentario';
 import { ComentarioPessoaProvider } from './../providers/comentario-pessoa-provider';
 import { ComentarioSolicitacaoProvider } from './../providers/comentario-solicitacao-provider';
@@ -31,7 +32,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -40,7 +40,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     Trabalho,
-    ListPage,
     TrabalhoDetalhe,
     Home,
     TrabalhoFechado,
@@ -70,7 +69,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     Trabalho,
-    ListPage,
     TrabalhoDetalhe,
     Home,
     TrabalhoFechado,
@@ -100,6 +98,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SolicitacaoProvider,
     ComentarioSolicitacaoProvider,
     ComentarioPessoaProvider,
+    TrabalhaParaProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
