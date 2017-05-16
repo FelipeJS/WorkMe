@@ -10,13 +10,7 @@
 <ion-content padding style="background-color: #e9ebee;">
   <ion-card>
     
-    <ion-item color="light" [hidden]='true'>
-      <ion-note item-right>
-        <h3>{{item.id}}</h3>
-      </ion-note>
-    </ion-item>
-
-    <ion-item color="light">
+    <ion-item color="light" [hidden]="true">
       <ion-note item-right>
         <h3>{{item.id}}</h3>
       </ion-note>
@@ -55,6 +49,13 @@
       <ion-note item-right>
         <h3><a>{{item.telefone}}</a></h3>
       </ion-note>
+    </ion-item>
+
+    <ion-item color="light">
+      <button ion-button icon-right default block (click)="adicionarFuncionario(item)">
+        Adicionar Funcionário
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
     </ion-item>
   </ion-card>
 </ion-content>

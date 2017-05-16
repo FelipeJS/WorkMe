@@ -4,29 +4,15 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Funcionários</ion-title>
-
   </ion-navbar>
 </ion-header>
 
 <ion-content padding style="background-color: #e9ebee;">
-  <ion-searchbar (ionInput)="getItens($event)" placeholder="Pesquisar"></ion-searchbar>
-
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>  
-      <h1>{{item.nmPessoa}}</h1>
-      <h2>{{item.dsCategoria}}</h2>
-      <h3>{{item.dsCidade}} {{item.dsEstado}}</h3>
-      <ion-item color="light">
-        <button ion-button icon-left clear small item-left>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
-        </button>
-        <button ion-button icon-left clear small item-right>
-          <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
-        </button>
-      </ion-item>
+      <h1>{{item.name}} {{item.lastName}}</h1>
+      <h2>{{item.categoria}}</h2>
+      <h3>{{item.cidade}} {{item.estado}}</h3>
     </ion-card-content>
   </ion-card>
-
 </ion-content>

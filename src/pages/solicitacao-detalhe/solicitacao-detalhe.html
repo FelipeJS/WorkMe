@@ -72,14 +72,14 @@
       </ion-note>
     </ion-item>
 
-    <ion-item color="light">
+    <ion-item color="light" *ngIf="item.status === 2">
       <ion-icon name="man" item-left></ion-icon>
       <ion-note item-right>
         <h3>{{item.userAnalise.name}}</h3>
       </ion-note>
     </ion-item>
 
-    <ion-list>
+    <ion-list *ngIf="item.status === 2">
       <ion-item color="darker" *ngFor="let comentario of itens" style="border-bottom: 1px solid #e9ebee;">
         <ion-note item-left>
           <p>{{comentario.user.name}}</p>
