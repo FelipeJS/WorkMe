@@ -17,6 +17,10 @@ export class TrabalhaParaProvider {
     return this.http.get(this.api + 'listarFuncionarios').map(res => res.json())
   }
 
+  verificarFuncionario(cdUsuarioFuncionario){
+    return this.http.get(this.api + 'consultar?cdUsuarioFuncionario=' + cdUsuarioFuncionario).map(res => res.json())
+  }
+  
   adicionarFuncionario(cdUsuarioFuncionario){
     return this.http.get(this.api + 'salvar?cdUsuarioFuncionario=' + cdUsuarioFuncionario).map(res => res.json())
   }

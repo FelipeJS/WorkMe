@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { TrabalhaParaProvider } from '../../providers/trabalha-para-provider';
+import { Cliente } from '../cliente/cliente';
 
 @Component({
   templateUrl: 'cliente-detalhe.html'
@@ -8,10 +9,28 @@ import { TrabalhaParaProvider } from '../../providers/trabalha-para-provider';
 export class ClienteDetalhe {
 
   item: any;
+  isFuncionario: any = false;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, 
       private alertCtrl: AlertController, public trabalhaParaProvider: TrabalhaParaProvider) {
     this.item = navParams.get('item');
+    
+    this.verificarFuncionario(navParams.get('item').id);
+  }
+
+  verificarFuncionario(cdUsuarioFuncionario){
+    let load = this.presentLoading();
+    this.trabalhaParaProvider.verificarFuncionario(cdUsuarioFuncionario).subscribe(
+      data => this.buildItens(data, load), 
+      err => this.errorAlert(err, load)
+    );
+  }
+
+  buildItens(data, load){
+    if(data == true){
+      this.isFuncionario = true;
+    }
+    load.dismiss();
   }
 
   adicionarFuncionario(){
@@ -29,6 +48,7 @@ export class ClienteDetalhe {
       subTitle: 'Funcionário adicionado com sucesso',
       buttons: ['Ok']
     });
+    this.viewItem();
     alert.present();
   }
 
@@ -49,5 +69,9 @@ export class ClienteDetalhe {
     });
     alert.present();
     console.log(err);
+  }
+
+  viewItem(){
+    this.navCtrl.push(Cliente, {});
   }
 }

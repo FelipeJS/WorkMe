@@ -64,6 +64,7 @@ export class Servico {
   salvarServico(servico){
     let load = this.presentLoading();
 
+    servico.active = 1;
     this.servicoProvider.postServico(servico).subscribe(
       data => this.atualizarItens(load), 
       err => this.errorAlert(err, load)

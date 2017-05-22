@@ -51,7 +51,7 @@
       </ion-note>
     </ion-item>
 
-    <ion-item color="light">
+    <ion-item color="light" *ngIf="!isFuncionario">
       <button ion-button icon-right default block (click)="adicionarFuncionario(item)">
         Adicionar Funcionário
         <ion-icon name="add-circle"></ion-icon>

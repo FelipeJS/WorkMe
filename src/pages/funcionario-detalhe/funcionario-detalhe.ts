@@ -31,6 +31,7 @@ export class FuncionarioDetalhe {
       subTitle: 'Funcionário removido com sucesso',
       buttons: ['Ok']
     });
+    this.viewItem();
     alert.present();
   }
 
