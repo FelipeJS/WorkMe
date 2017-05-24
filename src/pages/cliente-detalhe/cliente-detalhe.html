@@ -3,52 +3,39 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{item.name}} {{item.lastName}}</ion-title>
+    <ion-title>{{item.name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding style="background-color: #e9ebee;">
   <ion-card>
-    
     <ion-item color="light" [hidden]="true">
-      <ion-note item-right>
-        <h3>{{item.id}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.id}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="person" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.documento}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.documento}}</h3>
     </ion-item>
 
-    <ion-item color="light" *ngIf="item.categoria">
+    <ion-item color="light">
       <ion-icon name="cube" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.categoria}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.categoria}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="mail" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.email}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.email}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="locate" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.bairro}} - {{item.cidade}} {{item.estado}}</h3>
-      </ion-note>
+        <h3 item-right>{{item.bairro}} - {{item.cidade}} {{item.estado}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="call" item-left></ion-icon>
-      <ion-note item-right>
-        <h3><a>{{item.telefone}}</a></h3>
-      </ion-note>
+      <h3 item-right><a>{{item.telefone}}</a></h3>
     </ion-item>
 
     <ion-item color="light" *ngIf="!isFuncionario">

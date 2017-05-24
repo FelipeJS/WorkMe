@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Minhas Solicitações</ion-title>
+    <ion-title item-left>Minhas Solicitações</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,10 +11,10 @@
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content> 
       <h2><b>{{item.cdSolicitacao}}</b></h2> 
-      <h2>{{item.servico.nome}}</h2>
+      <h3>{{item.servico.nome}}</h3>
       <h3>{{item.descricao}}</h3>
       <h4><b>{{item.status === 1 ? 'Aberto' : item.status === 2 ? 'Em Análise' : item.status === 3 ? 'Finalizado' : 'Recusado'}}</b></h4>
-      <h5>{{item.dhSolicitacao}}</h5>
+      <h5>{{item.dhSolicitacao | date: 'dd/MM/yyyy HH:mm:ss'}}</h5>
     </ion-card-content>
   </ion-card>
 </ion-content>

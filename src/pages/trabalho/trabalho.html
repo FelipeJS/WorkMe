@@ -10,15 +10,10 @@
 <ion-content padding style="background-color: #e9ebee;">
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>
-      <ion-note icon-left clear small>
-        <ion-icon name="barcode"></ion-icon>
-        <h3><b>{{item.cdSolicitacao}}</b></h3>
-      </ion-note>
-      <h2><b>{{item.cdSolicitacao}}</b></h2>  
+      <h2><b>{{item.cdSolicitacao}}</b></h2>
       <h2>{{item.user.name}}</h2>
-      <h3>{{item.user.cidade}} {{item.user.estado}}</h3>
-      <h4><b>{{item.descricao}}</b></h4>
-      <h5>{{item.dhSolicitacao}}</h5>
+      <h3>{{item.descricao}}</h3>
+      <h4>{{item.dhSolicitacao | date: 'dd/MM/yyyy HH:mm:ss'}}</h4>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -18,8 +18,6 @@ export class Perfil {
       id:['', Validators.required],
       documento:['', Validators.required],
       name:['', Validators.required],
-      lastName:['', Validators.required],
-      fantasia:['', Validators.required],
       telefone:['', Validators.required],
       endereco:['', Validators.required],
       bairro:['', Validators.required],

@@ -11,72 +11,47 @@
   <ion-card>
     <ion-item color="light">
       <ion-icon name="barcode" item-left></ion-icon>
-      <ion-note item-right>
-        <h3><b>{{item.cdSolicitacao}}</b></h3>
-      </ion-note>
+      <h3 item-right><b>{{item.cdSolicitacao}}</b></h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="person" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.user.documento}}</h3>
-      </ion-note>
-    </ion-item>
-
-    <ion-item color="light">
-      <ion-icon name="home" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.user.fantasia}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.user.documento}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="mail" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.user.email}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.user.email}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="locate" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.user.bairro}} - {{item.user.cidade}} {{item.user.estado}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.user.bairro}} - {{item.user.cidade}} {{item.user.estado}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="call" item-left></ion-icon>
-      <ion-note item-right>
-        <h3><a>{{item.user.telefone}}</a></h3>
-      </ion-note>
+      <h3 item-right><a>{{item.user.telefone}}</a></h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="list" item-left></ion-icon>
-      <ion-note item-right>
-        <h3><b>{{item.servico.nome}}</b></h3>
-      </ion-note>
+      <h3 item-right><b>{{item.servico.nome}}</b></h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="calendar" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.dhSolicitacao}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.dhSolicitacao | date: 'dd/MM/yyyy HH:mm:ss'}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="list-box" item-left></ion-icon>
-      <ion-note item-right>
-        <h3><b>{{item.descricao}}</b></h3>
-      </ion-note>
+      <h3 item-right><b>{{item.descricao}}</b></h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="man" item-left></ion-icon>
-      <ion-note item-right>
-        <h3>{{item.userAnalise.name}}</h3>
-      </ion-note>
+      <h3 item-right>{{item.userAnalise.name}}</h3>
     </ion-item>
 
     <ion-list>

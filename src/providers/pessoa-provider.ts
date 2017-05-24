@@ -11,7 +11,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PessoaProvider {
 
-  api:string = 'http://localhost:9090/';
+  //api:string = 'http://localhost:9090/';
+  api:string = 'http://meutrabalho.com.br/';
 
   constructor(public http: Http) {}
 
@@ -38,5 +39,4 @@ export class PessoaProvider {
           (res: Response) => {return res.json();}
     );
   }
-
 }

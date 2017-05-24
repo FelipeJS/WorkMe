@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ConfiguracaoProvider {
 
-  api:string = 'http://localhost:9090/configuracao/';
+  //api:string = 'http://localhost:9090/configuracao/';
+  api:string = 'http://meutrabalho.com.br/configuracao/';
 
   constructor(public http: Http) {}
 
