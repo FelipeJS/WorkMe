@@ -55,12 +55,12 @@
     </ion-item>
 
     <ion-list>
-      <ion-item color="darker" *ngFor="let comentario of itens" style="border-bottom: 1px solid #e9ebee;">
+      <ion-item color="default-gray" *ngFor="let comentario of itens" style="border-bottom: 1px solid #e9ebee;">
         <ion-note item-left>
-          <p>{{comentario.user.name}}</p>
+          <p style="color: black;">{{comentario.user.name}} - {{comentario.dhComentario | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
         </ion-note>
         <ion-note item-right>
-          <p>{{comentario.descricao}}</p>          
+          <p style="color: black;">{{comentario.descricao}}</p>          
         </ion-note>
       </ion-item>
     </ion-list>

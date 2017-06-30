@@ -11,8 +11,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PessoaProvider {
 
-  //api:string = 'http://localhost:9090/';
-  api:string = 'http://meutrabalho.com.br/';
+  api:string = 'http://localhost:9090/';
+  //api:string = 'http://meutrabalho.com.br/';
 
   constructor(public http: Http) {}
 

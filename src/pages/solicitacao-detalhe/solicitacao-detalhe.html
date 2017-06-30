@@ -54,13 +54,13 @@
       <h3 item-right>{{item.userAnalise.name}}</h3>
     </ion-item>
 
-    <ion-list *ngIf="item.status === 2">
-      <ion-item color="darker" *ngFor="let comentario of itens" style="border-bottom: 1px solid #e9ebee;">
+    <ion-list *ngIf="item.status === 2 || item.status === 3">
+      <ion-item color="default-gray" *ngFor="let comentario of itens" style="border-bottom: 1px solid #e9ebee;">
         <ion-note item-left>
-          <p>{{comentario.user.name}}</p>
+          <p style="color: black;">{{comentario.user.name}} - {{comentario.dhComentario | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
         </ion-note>
         <ion-note item-right>
-          <p>{{comentario.descricao}}</p>          
+          <p style="color: black;">{{comentario.descricao}}</p>          
         </ion-note>
       </ion-item>
     </ion-list>

@@ -5,8 +5,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SolicitacaoProvider {
 
-  //api:string = 'http://localhost:9090/solicitacao/';
-  api:string = 'http://meutrabalho.com.br/solicitacao/';
+  api:string = 'http://localhost:9090/solicitacao/';
+  //api:string = 'http://meutrabalho.com.br/solicitacao/';
 
   constructor(public http: Http) {}
 
@@ -16,6 +16,10 @@ export class SolicitacaoProvider {
 
   getServico(cdServico){
     return this.http.get(this.api + 'consultar?cdServico=' + cdServico).map(res => res.json())
+  }
+
+  getContarSolicitacao(status){
+    return this.http.get(this.api + 'contarSolicitacao?status=' + status).map(res => res.json())
   }
 
   getSolicitacoesAbertas(){
