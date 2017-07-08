@@ -9,6 +9,7 @@ import { LoadingController, AlertController, NavController } from 'ionic-angular
 })
 export class Trabalho {
   itens = [];
+  itensCopy = [];
 
   constructor(public navCtrl: NavController, public solicitacaoProvider: SolicitacaoProvider, 
       public loadingCtrl: LoadingController, private alertCtrl: AlertController) {
@@ -25,6 +26,7 @@ export class Trabalho {
 
   buildItens(data, load){
     this.itens = data;
+    this.itensCopy = data;
     load.dismiss();
   }
 
@@ -45,6 +47,34 @@ export class Trabalho {
     });
     load.present();
     return load;
+  }
+
+  retoreItens(){
+    this.itens = this.itensCopy;
+  }
+
+  getItemsById(ev) {
+    this.retoreItens();
+
+    let val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.itens = this.itens.filter((item) => {
+        return item.cdSolicitacao == val;
+      });
+    }
+  }
+
+  getItemsByName(ev) {
+    this.retoreItens();
+
+    var val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.itens = this.itens.filter((item) => {
+        return (item.user.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    }
   }
 
   viewItem(item){

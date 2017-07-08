@@ -9,28 +9,11 @@ import { LoadingController, AlertController, NavController } from 'ionic-angular
 })
 export class TrabalhoFechado {
   itens = [];
+  itensCopy = [];
 
   constructor(public navCtrl: NavController, public solicitacaoProvider: SolicitacaoProvider, 
       public loadingCtrl: LoadingController, private alertCtrl: AlertController) {
     this.getSolicitacoes();
-  }
-
-  initializeItens() {
-    this.itens = [{
-      'nmPessoa': 'Felipe Ferreira Campos',
-      'nrCpf': '033.894.221-10',
-      'dsEmail': 'tecnologiagrave@gmail.com',
-      'nrTelefone': '62 993038153',
-      'dsEmpresa': 'Hugol',
-      'dsEndereco': 'Rua RB04 QD27 LT12',
-      'dsBairro': 'Recanto do Bosque',
-      'dsCidade': 'Goiânia',
-      'dsEstado': 'GO',
-      'dsServico': 'Conserto de Computador',
-      'dhServico': '03/04/2017 10:10',
-      'dsDetalhe': 'Meu computador não está ligando, esbarrei na tomada hoje cedo, não entendo',
-      'dsStatus': 'ABERTO'
-    }];
   }
   
   getSolicitacoes(){
@@ -43,6 +26,7 @@ export class TrabalhoFechado {
 
   buildItens(data, load){
     this.itens = data;
+    this.itensCopy = data;
     load.dismiss();
   }
 
@@ -63,6 +47,34 @@ export class TrabalhoFechado {
     });
     load.present();
     return load;
+  }
+
+  retoreItens(){
+    this.itens = this.itensCopy;
+  }
+
+  getItemsById(ev) {
+    this.retoreItens();
+
+    let val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.itens = this.itens.filter((item) => {
+        return item.cdSolicitacao == val;
+      });
+    }
+  }
+
+  getItemsByName(ev) {
+    this.retoreItens();
+
+    var val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.itens = this.itens.filter((item) => {
+        return (item.user.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    }
   }
 
   viewItem(item){

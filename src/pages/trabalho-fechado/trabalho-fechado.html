@@ -8,6 +8,17 @@
 </ion-header>
 
 <ion-content padding style="background-color: #e9ebee;">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-searchbar (ionInput)="getItemsById($event)" placeholder="Pesquisar ID"></ion-searchbar>
+      </ion-col>
+      <ion-col col-6>
+        <ion-searchbar (ionInput)="getItemsByName($event)" placeholder="Pesquisar Nome"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>  
       <h2><b>{{item.cdSolicitacao}}</b></h2>
