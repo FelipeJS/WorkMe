@@ -16,7 +16,8 @@ export class TrabalhoAnaliseDetalhe {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
         public loadingCtrl: LoadingController, private alertCtrl: AlertController,
-        public comentarioSolicitacaoProvider : ComentarioSolicitacaoProvider, public solicitacaoProvider: SolicitacaoProvider) {
+        public comentarioSolicitacaoProvider : ComentarioSolicitacaoProvider, 
+        public solicitacaoProvider: SolicitacaoProvider) {
     this.item = navParams.get('item');
     this.getComentarios();
   }
@@ -77,6 +78,28 @@ export class TrabalhoAnaliseDetalhe {
       data=>this.presentAlert(load),
       err=>this.errorAlert(err, load)
     );
+  }
+
+  doConfirm(solicitacao) {
+    let confirm = this.alertCtrl.create({
+      title: 'Finalizar Solicitação',
+      message: 'Deseja finalizar a solicitação?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            this.finalizarSolicitacao(solicitacao);
+          }
+        }
+      ]
+    });
+    confirm.present()
   }
 
   presentAlert(load) {

@@ -15,18 +15,13 @@
     </ion-item>
 
     <ion-item color="light">
-      <ion-icon name="person" item-left></ion-icon>
-      <h3 item-right>{{item.user.documento}}</h3>
-    </ion-item>
-
-    <ion-item color="light">
       <ion-icon name="mail" item-left></ion-icon>
       <h3 item-right>{{item.user.email}}</h3>
     </ion-item>
 
     <ion-item color="light">
       <ion-icon name="locate" item-left></ion-icon>
-      <h3 item-right>{{item.user.bairro}} - {{item.user.cidade}} {{item.user.estado}}</h3>
+      <h3 item-right>{{item.user.categoria}} - {{item.user.setor}}</h3>
     </ion-item>
 
     <ion-item color="light">
@@ -75,7 +70,7 @@
     </form>
 
     <ion-item color="backgroud">
-      <button ion-button icon-right block default color="danger" (click)="finalizarSolicitacao(item)">
+      <button ion-button icon-right block default color="danger" (click)="doConfirm(item)">
         Finalizar
         <ion-icon name="done-all"></ion-icon>
       </button>

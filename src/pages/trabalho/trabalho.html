@@ -22,8 +22,9 @@
   <ion-card *ngFor="let item of itens" color="light" (click)="viewItem(item)">
     <ion-card-content>
       <h2><b>{{item.cdSolicitacao}}</b></h2>
-      <h2>{{item.user.name}}</h2>
-      <h3>{{item.descricao}}</h3>
+      <h3>{{item.user.name}}</h3>
+      <h4>{{item.user.categoria}} - {{item.user.setor}}</h4>
+      <h4>{{item.descricao}}</h4>
       <h4>{{item.dhSolicitacao | date: 'dd/MM/yyyy HH:mm:ss'}}</h4>
     </ion-card-content>
   </ion-card>

@@ -54,6 +54,11 @@
       <h3 item-right>{{item.userAnalise.name}}</h3>
     </ion-item>
 
+    <ion-item color="light">
+      <ion-icon name="warning" item-left></ion-icon>
+      <h4 item-right>{{item.status === 1 ? 'Aberto' : item.status === 2 ? 'Em Análise' : item.status === 3 ? 'Finalizado' : 'Recusado'}}</h4>
+    </ion-item>
+
     <ion-list *ngIf="item.status === 2 || item.status === 3">
       <ion-item color="default-gray" *ngFor="let comentario of itens" style="border-bottom: 1px solid #e9ebee;">
         <ion-note item-left>
